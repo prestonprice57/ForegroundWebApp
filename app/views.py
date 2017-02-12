@@ -25,6 +25,7 @@ def index():
             img = fe.extract_foreground(app.static_folder + '/' + filename)
             new_filename = filename.split()[0] + '.png'
             cv2.imwrite(app.static_folder + '/' + new_filename, img)
+            os.system('rm ' + app.static_folder + '/' + new_filename)
             # file.save(os.path.join(app.static_folder, filename))
             return redirect(url_for('uploaded_file',
                                     filename=new_filename))
